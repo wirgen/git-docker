@@ -13,7 +13,7 @@ import yaml
 git_repository = "git@gitlab.com:git-docker/example.git"
 git_branch = "main"
 home_folder = "../../tmp"
-env_foler = "../../envs"
+env_folder = "../../envs"
 http_enabled = True
 http_port = 8000
 http_token = "example"
@@ -49,8 +49,8 @@ def add_service_action(service, action):
 
 
 def update_env(service):
-    if os.path.exists(env_foler + "/" + service + ".env"):
-        shutil.copyfile(env_foler + "/" + service + ".env", git_directory + "/" + service + "/.env")
+    if os.path.exists(env_folder + "/" + service + ".env"):
+        shutil.copyfile(env_folder + "/" + service + ".env", git_directory + "/" + service + "/.env")
     else:
         if os.path.exists(git_directory + "/" + service + "/.env"):
             os.remove(git_directory + "/" + service + "/.env")
